@@ -12,21 +12,15 @@ std::vector<int> Solution::findDuplicates(std::vector<int> &nums) {
         int m = n > 0 ? n : -n;
 
         m = m - 1;
-        nums[m] = -nums[m];
-        std::cout << nums[m] << " ";
 
-    }
-    std::cout << std::endl;
-    for (auto &n:nums) {
-        std::cout << n << " ";
-    }
-    std::cout << std::endl;
-
-    for (int i = 0; i < nums.size(); ++i) {
-        if (nums[i] > 0) {
-            res.push_back(i + 1);
+        if (nums[m] < 0) {
+            res.push_back(m + 1);
         }
+
+        nums[m] = -nums[m];
+
     }
+
     return res;
 
 }
